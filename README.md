@@ -18,7 +18,7 @@ Bu proýekt Türkmenistanyň Teleradio Merkeziniň resmi web sahypasydyr. Sahypa
 
 1. Proýekti klonlaň:
 ```bash
-git clone https://github.com/username/teleradiomerkezi.git
+git clone https://github.com/mekanio20/teleradiomerkezi.git
 ```
 
 2. Proýekt papkasyna giriň:
@@ -48,12 +48,6 @@ npm run dev
 - Telewideniye gepleşikleri
 - Radio gepleşikleri
 - Kinematografiýa hyzmatlary
-
-## Habarlaşmak
-
-- Salgysy: Aşgabat şäheri, Magtymguly köçesi, 123
-- Telefon: +993 12 345678
-- E-poçta: info@teleradiomerkezi.tm
 
 ## Işgärler
 
@@ -106,10 +100,6 @@ Sahypa güvenlik standartlaryna laýyk gelýär:
 ## Döwlet Dilleri
 
 Sahypa iki döwlet dilinde (Türkmen we Rus) görkezilýär.
-
-## Lisensiýa
-
-Bu proýekt MIT lisenziýasy astynda ýaýraň. Köpräk maglumat üçin `LICENSE` faýlyna serediň.
 
 ## Üýtgeşmeler
 
