@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="tk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teleradiomerkezi - Habarlaşmak</title>
+    <script src="./public/tailwind.global.js"></script>
+    <script src="./public/vue.global.js"></script>
+    <script src="./public/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="min-h-screen bg-gray-50">
+        <!-- Header -->
+        <header class="bg-white shadow">
+          <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+              <h1 class="text-3xl font-bold text-gray-900">Teleradiomerkezi</h1>
+              <nav class="flex space-x-4">
+                <a href="index.html" class="text-gray-600 hover:text-blue-600">Baş Sahypa</a>
+                <a href="about.html" class="text-gray-600 hover:text-blue-600">Biz Barada</a>
+                <a href="contact.html" class="text-blue-600 font-semibold">Habarlaşmak</a>
+                <a href="employees.html" class="text-gray-600 hover:text-blue-600">Işgärler</a>
+              </nav>
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+          <div class="px-4 sm:px-0">
+            <div class="bg-white shadow rounded-lg overflow-hidden">
+              <div class="px-4 py-5 sm:p-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <!-- Contact Information -->
+                  <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">
+                      Habarlaşmak
+                    </h2>
+
+                    <div class="space-y-4">
+                      <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                          <svg class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                        </div>
+                        <div class="ml-3">
+                          <h3 class="text-lg font-medium text-gray-900">
+                            Salgysy
+                          </h3>
+                          <p class="mt-1 text-gray-600">
+                            Aşgabat şäheri, Magtymguly köçesi, 123
+                          </p>
+                        </div>
+                      </div>
+
+                      <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                          <svg class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                          </svg>
+                        </div>
+                        <div class="ml-3">
+                          <h3 class="text-lg font-medium text-gray-900">
+                            Telefon
+                          </h3>
+                          <p class="mt-1 text-gray-600">+993 12 345678</p>
+                        </div>
+                      </div>
+
+                      <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                          <svg class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                        <div class="ml-3">
+                          <h3 class="text-lg font-medium text-gray-900">
+                            E-poçta
+                          </h3>
+                          <p class="mt-1 text-gray-600">
+                            info@teleradiomerkezi.tm
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Contact Form -->
+                  <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">
+                      Habarlaşmak Formasy
+                    </h2>
+                    <form @submit.prevent="handleSubmit" class="space-y-6">
+                      <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">
+                          Ady, Familiýasy
+                        </label>
+                        <input
+                          type="text"
+                          id="name"
+                          v-model="form.name"
+                          required
+                          class="mt-1 block w-full px-6 py-4 bg-white/50 border border-gray-200 rounded-xl text-gray-700 text-base placeholder:text-gray-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 hover:border-gray-300"
+                          placeholder="Adyňyzy we familiýaňyzy giriziň"
+                        />
+                      </div>
+
+                      <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">
+                          E-poçta
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          v-model="form.email"
+                          required
+                          class="mt-1 block w-full px-6 py-4 bg-white/50 border border-gray-200 rounded-xl text-gray-700 text-base placeholder:text-gray-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 hover:border-gray-300"
+                          placeholder="E-poçta salgyňyzy giriziň"
+                        />
+                      </div>
+
+                      <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700">
+                          Mowzuk
+                        </label>
+                        <input
+                          type="text"
+                          id="subject"
+                          v-model="form.subject"
+                          required
+                          class="mt-1 block w-full px-6 py-4 bg-white/50 border border-gray-200 rounded-xl text-gray-700 text-base placeholder:text-gray-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 hover:border-gray-300"
+                          placeholder="Mowzudyňyzy giriziň"
+                        />
+                      </div>
+
+                      <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700">
+                          Hat
+                        </label>
+                        <textarea
+                          id="message"
+                          v-model="form.message"
+                          rows="4"
+                          required
+                          class="mt-1 block w-full px-6 py-4 bg-white/50 border border-gray-200 rounded-xl text-gray-700 text-base placeholder:text-gray-400 transition-all duration-200 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 hover:border-gray-300"
+                          placeholder="Hatyňyzy şu ýere ýazyň"
+                        ></textarea>
+                      </div>
+
+                      <div>
+                        <button
+                          type="submit"
+                          :disabled="isLoading"
+                          class="w-full flex justify-center py-4 px-6 border border-transparent rounded-xl shadow-sm text-base font-medium text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 transition-all duration-200"
+                        >
+                          {{ isLoading ? 'Iberilýär...' : 'Iber' }}
+                        </button>
+                      </div>
+
+                      <div v-if="successMessage" class="rounded-md bg-green-50 p-4">
+                        <div class="flex">
+                          <div class="flex-shrink-0">
+                            <svg class="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                          </div>
+                          <div class="ml-3">
+                            <p class="text-sm font-medium text-green-800">
+                              {{ successMessage }}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div v-if="errorMessage" class="rounded-md bg-red-50 p-4">
+                        <div class="flex">
+                          <div class="flex-shrink-0">
+                            <svg class="h-5 w-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                          </div>
+                          <div class="ml-3">
+                            <p class="text-sm font-medium text-red-800">
+                              {{ errorMessage }}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white">
+          <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+              <p class="text-base text-gray-500">
+                &copy; 2024 Teleradiomerkezi. Ähli hukuklary goralan.
+              </p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            API_URL: "http://localhost:3000/api",
+            isLoading: false,
+            successMessage: "",
+            errorMessage: "",
+            form: {
+              name: "",
+              email: "",
+              subject: "",
+              message: "",
+            },
+          };
+        },
+        methods: {
+          async handleSubmit() {
+            try {
+              this.isLoading = true;
+              this.errorMessage = "";
+              this.successMessage = "";
+
+              await axios.post(`${this.API_URL}/contact`, this.form);
+
+              this.successMessage = "Hatyňyz üstünlikli iberildi. Iň gysga wagtda size gaýtaryş ederis.";
+              Object.keys(this.form).forEach((key) => (this.form[key] = ""));
+            } catch (error) {
+              console.error("Error submitting form:", error);
+              this.errorMessage = "Hat iberilende ýalňyşlyk ýüze çykdy. Täzeden synanyşyň.";
+            } finally {
+              this.isLoading = false;
+            }
+          },
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>
